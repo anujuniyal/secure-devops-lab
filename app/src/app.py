@@ -8,7 +8,7 @@ app = Flask(__name__)
 DB_HOST = "postgres"
 DB_NAME = "secureapp"
 DB_USER = "secureuser"
-DB_PASSWORD_FILE = "/run/secrets/db_password"
+DB_PASSWORD_PATH = "/run/secrets/db_password" #nosec B105 - Docker secret file path, not a password
 
 REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
@@ -100,4 +100,4 @@ def health():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000) #nosec B104 - required for Docker networking
