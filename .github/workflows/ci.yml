@@ -37,7 +37,7 @@ jobs:
           pip-audit -r app/requirements.txt
       - name: Build Docker image
         run: |
-          docker build -t secure-devops-app:ci .
+          docker build -t secure-devops-app:ci -f app/ Dockerfile app
 
       - name: Container image security scan
         uses: aquasecurity/trivy-action@master
