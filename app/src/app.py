@@ -15,7 +15,7 @@ REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
 
 
 def get_db_password():
-    with open(DB_PASSWORD_FILE, "r") as f:
+    with open(DB_PASSWORD_PATH, "r") as f:
         return f.read().strip()
 
 
