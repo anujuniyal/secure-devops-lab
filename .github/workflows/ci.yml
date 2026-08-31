@@ -31,3 +31,7 @@ jobs:
         run: |
           pip install bandit
           bandit -r app/src
+      - name: Dependency vulnerability scan
+        run: |
+          pip install pip-audit
+          pip-audit -r app/requirements.txt
